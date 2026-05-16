@@ -95,3 +95,41 @@ Array.prototype.myReducer = function (callback, initialValue) {
 
   return accumulator;
 };
+
+// 6. Deep Clone Object: Clone nested objects.
+function deepClone(value) {
+  if (value === null) return value;
+
+  const dataTypes = [
+    "string",
+    "number",
+    "boolean",
+    "undefined",
+    "bigint",
+    "symbol",
+  ];
+
+  if (dataTypes.includes(typeof value)) {
+    return value;
+  }
+
+  // handle arrays
+  if (Array.isArray(value)) {
+    const result = [];
+
+    for (let i = 0; i < value.length; i++) {
+      result.push(deepClone(value[i]));
+    }
+
+    return result;
+  }
+
+  // handle objects
+  const result = {};
+
+  for (const key in value) {
+    result[key] = deepClone(value[key]);
+  }
+
+  return result;
+}

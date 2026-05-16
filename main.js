@@ -133,3 +133,20 @@ function deepClone(value) {
 
   return result;
 }
+
+// 7. Flatten Nested Array
+function flattenArray(arr) {
+  if (arr.length == 0) return;
+
+  const result = [];
+
+  arr.forEach((value) => {
+    if (!Array.isArray(value)) {
+      result.push(value);
+    } else {
+      result.push(...flattenArray(value));
+    }
+  });
+
+  return result;
+}

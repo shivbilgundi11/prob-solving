@@ -150,3 +150,22 @@ function flattenArray(arr) {
 
   return result;
 }
+
+// 8. Implement Currying
+function currying(a = 0) {
+  console.log(a);
+
+  return function (b) {
+    console.log(b);
+
+    return function (c) {
+      console.log(c);
+
+      return function () {
+        console.log("Done!");
+      };
+    };
+  };
+}
+
+const myCurrying = currying(1);

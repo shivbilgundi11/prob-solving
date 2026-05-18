@@ -255,3 +255,51 @@ function containsDupl(arr) {
 
   return false;
 }
+
+// 14. Best Time to Buy and Sell Stock
+function bestTimeToBuySell(input) {
+  let profits = [];
+
+  for (let i = 0; i < input.length; i++) {
+    let buy = input[i];
+    for (let j = i + 1; j < input.length; j++) {
+      let sell = input[j];
+
+      if (buy < sell) {
+        profits.push(sell - buy);
+      }
+    }
+  }
+
+  let maxProfit = profits[0] || 0;
+
+  profits.forEach((profit) => {
+    if (maxProfit < profit) maxProfit = profit;
+  });
+
+  console.log(maxProfit);
+}
+
+// Optimised Way
+function bestTimeToBuySell2(prices) {
+  let minPrice = prices[0];
+  let maxPofit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    let currentPrice = prices[i];
+
+    if (currentPrice < minPrice) {
+      minPrice = currentPrice;
+    }
+
+    let profit = currentPrice - minPrice;
+
+    if (maxPofit < profit) {
+      maxPofit = profit;
+    }
+  }
+
+  return maxPofit;
+}
+
+bestTimeToBuySell2([7, 1, 5, 3, 7, 4]);

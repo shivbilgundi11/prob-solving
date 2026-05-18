@@ -238,3 +238,20 @@ function twoSum(nums, target) {
 }
 
 twoSum([2, 11, 3, 15, 7, 3], 6);
+
+// 13. Contains Duplicate
+function containsDupl(arr) {
+  const copy = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+
+    if (copy.includes(num)) {
+      return true;
+    } else {
+      copy.push(num);
+    }
+  }
+
+  return false;
+}

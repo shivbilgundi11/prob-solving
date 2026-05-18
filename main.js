@@ -320,4 +320,61 @@ function productOfArrayExpSelf(input) {
   console.log(result);
 }
 
-productOfArrayExpSelf([1, 2, 3]);
+// productOfArrayExpSelf([1, 2, 3]);
+
+// 16. Move Zeroes
+function moveZeroes(input) {
+  const result = [];
+
+  const zeroes = [];
+
+  input.forEach((val) => {
+    if (val === 0) {
+      zeroes.push(val);
+    } else {
+      result.push(val);
+    }
+  });
+
+  return [...result, ...zeroes];
+}
+
+moveZeroes([0, 1, 0, 3, 12]);
+
+// 17. Rotate Array
+function rotateArray(input, rotateSteps) {
+  const result = [];
+  let newAdd = 0;
+
+  let rotateIndex = input.length - rotateSteps;
+
+  for (let i = 0; i < input.length; i++) {
+    if (i === rotateIndex) {
+      result[newAdd] = input[i];
+      rotateIndex += 1;
+      newAdd += 1;
+    } else {
+      result.push(input[i]);
+    }
+  }
+
+  console.log(result);
+}
+
+rotateArray([1, 2, 3, 4, 5, 6, 7], 3);
+
+function rotateInSort(input, rotateCount) {
+  const result = [];
+
+  const length = input.length;
+
+  rotateCount = rotateCount % length;
+
+  for (let i = 0; i < length; i++) {
+    result[(i + rotateCount) % length] = input[i];
+  }
+
+  return result;
+}
+
+rotateInSort([1, 2, 3, 4, 5, 6, 7], 3);

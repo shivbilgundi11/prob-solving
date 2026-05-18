@@ -168,4 +168,16 @@ function currying(a = 0) {
   };
 }
 
-const myCurrying = currying(1);
+// 9. Memoization
+function memoization(funct) {
+  let cache = {};
+
+  return function (arg) {
+    if (cache[arg]) return cache[arg];
+
+    const result = funct(arg);
+    cache[arg] = result;
+
+    return result;
+  };
+}

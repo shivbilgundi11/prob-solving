@@ -196,3 +196,26 @@ const fn = outer();
 fn(); // 1
 fn(); // 2
 fn(); // 3
+
+// 11. Implement Promise.all
+function promiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    const result = [];
+    let completed = 0;
+
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then((data) => {
+          result[index] = data;
+          completed++;
+
+          if (completed === promises.length) {
+            resolve(result);
+          }
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  });
+}

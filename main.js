@@ -303,3 +303,21 @@ function bestTimeToBuySell2(prices) {
 }
 
 bestTimeToBuySell2([7, 1, 5, 3, 7, 4]);
+
+// 15. Product of Array Except Self
+function productOfArrayExpSelf(input) {
+  const result = [];
+
+  for (let i = 0; i < input.length; i++) {
+    let currProd = 1;
+    for (let j = 0; j < input.length; j++) {
+      if (i == j) continue;
+
+      currProd = currProd * input[j];
+    }
+    result.push(currProd);
+  }
+  console.log(result);
+}
+
+productOfArrayExpSelf([1, 2, 3]);

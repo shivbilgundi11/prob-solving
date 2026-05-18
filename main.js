@@ -193,9 +193,9 @@ function outer() {
 }
 
 const fn = outer();
-fn(); // 1
-fn(); // 2
-fn(); // 3
+// fn(); // 1
+// fn(); // 2
+// fn(); // 3
 
 // 11. Implement Promise.all
 function promiseAll(promises) {
@@ -219,3 +219,22 @@ function promiseAll(promises) {
     });
   });
 }
+
+// =========================== DSA/Prob - Solving =========================== //
+// 12. Two Sum
+// Find indices whose sum equals target.
+function twoSum(nums, target) {
+  const map = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];
+
+    if (map.has(complement)) {
+      return [map.get(complement), i];
+    } else {
+      map.set(nums[i], i);
+    }
+  }
+}
+
+twoSum([2, 11, 3, 15, 7, 3], 6);

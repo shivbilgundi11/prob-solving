@@ -181,3 +181,18 @@ function memoization(funct) {
     return result;
   };
 }
+
+// 10. Closure in JS
+function outer() {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const fn = outer();
+fn(); // 1
+fn(); // 2
+fn(); // 3

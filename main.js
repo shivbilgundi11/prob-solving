@@ -395,3 +395,17 @@ function getMajorityElement(input) {
 }
 
 // console.log(getMejorityElement([3, 2, 3]));
+
+// 19. Missing Number
+function findMissingNum(input) {
+  const n = input.length;
+
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = input.reduce((prev, val) => prev + val);
+
+  const missing = expectedSum - actualSum;
+
+  return missing;
+}
+
+// console.log(findMissingNum([3, 0, 1, 2, 5]));

@@ -361,7 +361,7 @@ function rotateArray(input, rotateSteps) {
   console.log(result);
 }
 
-rotateArray([1, 2, 3, 4, 5, 6, 7], 3);
+// rotateArray([1, 2, 3, 4, 5, 6, 7], 3);
 
 function rotateInSort(input, rotateCount) {
   const result = [];
@@ -377,4 +377,21 @@ function rotateInSort(input, rotateCount) {
   return result;
 }
 
-rotateInSort([1, 2, 3, 4, 5, 6, 7], 3);
+// rotateInSort([1, 2, 3, 4, 5, 6, 7], 3);
+
+// 18. Majority Element
+// Moore Voting Algorithm sometimes asked.
+
+function getMajorityElement(input) {
+  const freq = {};
+
+  for (const val of input) {
+    freq[val] = (freq[val] || 0) + 1;
+
+    if (freq[val] > Math.floor(input.length) / 2) {
+      return val;
+    }
+  }
+}
+
+// console.log(getMejorityElement([3, 2, 3]));

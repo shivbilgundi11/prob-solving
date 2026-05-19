@@ -409,3 +409,18 @@ function findMissingNum(input) {
 }
 
 // console.log(findMissingNum([3, 0, 1, 2, 5]));
+
+// 20. Find Duplicate Number
+function findDuplicateNum(input) {
+  const freq = {};
+
+  for (const val of input) {
+    freq[val] = (freq[val] || 0) + 1;
+
+    if (freq[val] > 1) {
+      return val;
+    }
+  }
+}
+
+// console.log(findDuplicateNum([1, 2, 3, 2, 4]));
